@@ -13,7 +13,13 @@ public class SimpleMathService implements MathService {
      */
     @Override
     public int compare(int value1, int value2) {
-        return -2;
+        if(value1 == value2){
+            return 0;
+        } else if (value1 < value2){
+            return -1;
+        } else {
+            return 1;
+        }
     }
 
     /**
@@ -22,7 +28,11 @@ public class SimpleMathService implements MathService {
      */
     @Override
     public int maxFrom(int value1, int value2) {
-        return -1;
+        if(value1 > value2){
+            return value1;
+        } else{
+            return value2;
+        }
     }
 
     /**
@@ -31,7 +41,16 @@ public class SimpleMathService implements MathService {
      */
     @Override
     public int maxFrom(int[] values) {
-        return -1;
+        if(values.length==0) {
+            return 0;
+        }
+        int res = values[0];
+        for (int i = 1; i < values.length; i++) {
+            if (res < values[i]) {
+                res = values[i];
+            }
+        }
+        return res;
     }
 
     /**
@@ -40,7 +59,11 @@ public class SimpleMathService implements MathService {
      */
     @Override
     public int sum(int[] values) {
-        return -1;
+        int res = 0;
+        for (int i = 0; i < values.length; i++) {
+            res += values[i];
+        }
+        return res;
     }
 
     /**
