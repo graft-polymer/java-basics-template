@@ -128,8 +128,20 @@ public class SimpleMathService implements MathService {
      */
     @Override
     public int[] sort(int[] values) {
-        return new int[]{};
+        int[] sort = values.clone();
+        for(int i = 0; i < sort.length - 1; i++){
+            for(int j = 0; j < (sort.length - i - 1) ; j++){
+                if(sort[j] > sort[j + 1]){
+                    int temp = sort[j];
+                    sort[j] = sort[j+1];
+                    sort[j + 1] = temp;
+                }
+            }
+        }
+        return sort;
     }
+
+
 
     /**
      * Метод определяет, является ли заданное число простым.
